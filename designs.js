@@ -9,6 +9,12 @@ function clearGrid() {
 } else {makeGrid();};
 }
 
+function cellColor() {
+  const INPUT_TYPES = document.querySelectorAll('input');
+  const CHOSEN_COLOR = INPUT_TYPES[3].value;
+  return CHOSEN_COLOR;
+};
+
 function makeGrid() {
     // finds the doc body and user sizing inputs
     const DOC_BODY = document.getElementsByTagName("body")[0];
@@ -25,6 +31,11 @@ function makeGrid() {
 
         for(var x = 0; x < GRID_WIDTH; x++) {
             GRID_CELL = document.createElement("td");
+            GRID_CELL.addEventListener('click', function (event) {
+              console.log('yep see that click on the cell');
+              event.explicitOriginalTarget.bgColor = cellColor();
+              console.log(event);
+            });
             GRID_ROW.appendChild(GRID_CELL);
         }
         GRID_BODY.appendChild(GRID_ROW);
