@@ -1,6 +1,13 @@
 /*  Attribute the reference site used to learn about base table construction. https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces
 */
 
+function clearGrid() {
+  var oldGrid = document.querySelector('tbody') !== null;
+  if (oldGrid) {document.querySelector('tbody').remove();
+  makeGrid();
+} else {makeGrid();};
+}
+
 function makeGrid() {
     // finds the doc body and user sizing inputs
     const DOC_BODY = document.getElementsByTagName("body")[0];
@@ -30,7 +37,7 @@ function makeGrid() {
 
 const SIZER = document.querySelector('#sizePicker');
 SIZER.addEventListener('submit', function (event) {
-  makeGrid();
+  clearGrid();
   event.preventDefault();
   console.log(event);
 });
