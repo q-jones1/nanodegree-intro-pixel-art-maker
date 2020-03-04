@@ -2,7 +2,7 @@
 */
 
 function clearGrid() {
-  // clears the grid, if applicable and calls make grid function
+  // clears colors from the grid, if applicable and calls make grid function
   var oldGrid = document.querySelector('tbody') !== null;
   if (oldGrid) {document.querySelector('tbody').remove();
   makeGrid();
@@ -10,13 +10,14 @@ function clearGrid() {
 }
 
 function cellColor() {
+  // captures the chosen color in the color picker
   const INPUT_TYPES = document.querySelectorAll('input');
   const CHOSEN_COLOR = INPUT_TYPES[3].value;
   return CHOSEN_COLOR;
 };
 
 function makeGrid() {
-    // finds the doc body and user sizing inputs
+    // finds the document body(<body>) and captures the user sizing inputs
     const DOC_BODY = document.getElementsByTagName("body")[0];
     const GRID_HEIGHT = document.querySelector('#inputHeight').value;
     const GRID_WIDTH = document.querySelector('#inputWidth').value;
@@ -32,9 +33,7 @@ function makeGrid() {
         for(var x = 0; x < GRID_WIDTH; x++) {
             GRID_CELL = document.createElement("td");
             GRID_CELL.addEventListener('click', function (event) {
-              console.log('yep see that click on the cell');
               event.explicitOriginalTarget.bgColor = cellColor();
-              console.log(event);
             });
             GRID_ROW.appendChild(GRID_CELL);
         }
@@ -54,5 +53,4 @@ SIZER.addEventListener('submit', function (event) {
   // calls the clear grid function and later stops default refresh
   clearGrid();
   event.preventDefault();
-  console.log(event);
 });
