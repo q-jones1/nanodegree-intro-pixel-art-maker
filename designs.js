@@ -1,12 +1,16 @@
-/*  Attribute the reference site used to learn about base table construction. https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces
+/*
+   Attribution to the following reference site, used to learn about initial base table element. https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces
 */
 
 function clearGrid() {
-  // clears colors from the grid, if applicable and calls make grid function
-  var oldGrid = document.querySelector('tbody') !== null;
-  if (oldGrid) {document.querySelector('tbody').remove();
-  makeGrid();
-} else {makeGrid();};
+    // clears colors from the grid, if applicable and calls make grid function
+    const OLD_GRID = document.querySelector('tbody') !== null;
+    if (OLD_GRID) {
+      document.querySelector('tbody').remove();
+      makeGrid();
+    } else {
+      makeGrid();
+    }
 }
 
 function cellColor() {
@@ -14,29 +18,32 @@ function cellColor() {
   const INPUT_TYPES = document.querySelectorAll('input');
   const CHOSEN_COLOR = INPUT_TYPES[3].value;
   return CHOSEN_COLOR;
-};
+}
 
 function makeGrid() {
     // finds the document body(<body>) and captures the user sizing inputs
-    const DOC_BODY = document.getElementsByTagName("body")[0];
+    const DOC_BODY = document.querySelector('body');
     const GRID_HEIGHT = document.querySelector('#inputHeight').value;
     const GRID_WIDTH = document.querySelector('#inputWidth').value;
 
     // finds the grid base(<table>) and creates grid body(<tbody>)
-    GRID_BASE = document.querySelector("table");
-    GRID_BODY = document.createElement("tbody");
+    const GRID_BASE = document.querySelector('table');
+    const GRID_BODY = document.createElement('tbody');
 
     // loop and nested loop to create the rows and cells based on user sizing
-    for(var y = 0; y < GRID_HEIGHT; y++) {
-        const GRID_ROW = document.createElement("tr");
+    for(let y = 0; y < GRID_HEIGHT; y++) {
+        const GRID_ROW = document.createElement('tr');
 
-        for(var x = 0; x < GRID_WIDTH; x++) {
-            GRID_CELL = document.createElement("td");
+        for(let x = 0; x < GRID_WIDTH; x++) {
+            const GRID_CELL = document.createElement('td');
+            // adds an event listener to each cell and changes color on click
             GRID_CELL.addEventListener('click', function (event) {
               event.explicitOriginalTarget.bgColor = cellColor();
             });
+            // adds the cell into the row
             GRID_ROW.appendChild(GRID_CELL);
         }
+        // adds the row into grid body(<tbody>)
         GRID_BODY.appendChild(GRID_ROW);
     }
 
