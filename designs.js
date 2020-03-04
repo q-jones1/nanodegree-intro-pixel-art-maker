@@ -14,10 +14,9 @@ function clearGrid() {
 }
 
 function cellColor() {
-  // captures the chosen color in the color picker
-  const INPUT_TYPES = document.querySelectorAll('input');
-  const CHOSEN_COLOR = INPUT_TYPES[3].value;
-  return CHOSEN_COLOR;
+    // captures the chosen color in the color picker
+    const CHOSEN_COLOR = document.querySelectorAll('input')[3].value;
+    return CHOSEN_COLOR;
 }
 
 function makeGrid() {
@@ -53,11 +52,15 @@ function makeGrid() {
     DOC_BODY.appendChild(GRID_BASE);
 }
 
-// finds the size picker form
-const SIZER = document.querySelector('#sizePicker');
-// listens for a submit button press(submit event) on the size picker form
-SIZER.addEventListener('submit', function (event) {
-  // calls the clear grid function and later stops default refresh
-  clearGrid();
-  event.preventDefault();
-});
+function beginPixelArt() {
+    // finds the size picker form
+    const SIZER = document.querySelector('#sizePicker');
+    // listens for a submit button press(submit event) on the size picker form
+    SIZER.addEventListener('submit', function (event) {
+    // calls the clear grid function and later stops default refresh
+    clearGrid();
+    event.preventDefault();
+  });
+}
+
+beginPixelArt();
