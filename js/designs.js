@@ -1,4 +1,4 @@
-/*
+/* Date: 06-02-19
    Attribution to the following reference site, used to learn about initial base table element. https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces
 */
 
@@ -37,7 +37,7 @@ function makeGrid() {
             const GRID_CELL = document.createElement('td');
             // adds an event listener to each cell and changes color on click
             GRID_CELL.addEventListener('click', function (event) {
-              event.explicitOriginalTarget.bgColor = cellColor();
+              event.target.bgColor = cellColor();
             });
             // adds the cell into the row
             GRID_ROW.appendChild(GRID_CELL);
