@@ -2,6 +2,7 @@
 */
 
 function clearGrid() {
+  // clears the grid, if applicable and calls make grid function
   var oldGrid = document.querySelector('tbody') !== null;
   if (oldGrid) {document.querySelector('tbody').remove();
   makeGrid();
@@ -35,8 +36,11 @@ function makeGrid() {
     DOC_BODY.appendChild(GRID_BASE);
 }
 
+// finds the size picker form
 const SIZER = document.querySelector('#sizePicker');
+// listens for a submit button press(submit event) on the size picker form
 SIZER.addEventListener('submit', function (event) {
+  // calls the clear grid function and later stops default refresh
   clearGrid();
   event.preventDefault();
   console.log(event);
