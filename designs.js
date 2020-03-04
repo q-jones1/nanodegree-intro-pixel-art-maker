@@ -55,6 +55,9 @@ function makeGrid() {
 function beginPixelArt() {
     // finds the size picker form
     const SIZER = document.querySelector('#sizePicker');
+    // sets the label of the submit button of the form to always say 'Submit'
+    const SUBMIT_BUTTON = document.querySelectorAll('input')[2];
+    SUBMIT_BUTTON.setAttribute('value','Submit');
     // listens for a submit button press(submit event) on the size picker form
     SIZER.addEventListener('submit', function (event) {
     // calls the clear grid function and later stops default refresh
