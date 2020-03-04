@@ -35,4 +35,4 @@ To see the detail of the specific requirements that the project needed to meet, 
 
 This project just added to the initial application builds from [Udacity's starter code GitHub repo](https://github.com/udacity/project-pixel-art-maker-starter), so additional code is licensed under the same terms. See the **LICENSE file** for license rights and limitations.
 
-Attribution for any project dependencies or reference resources used during this project, are detailed, either in the attribution section of the relevant .css and .js files or the dependencies folder, within this project.
+Attribution for any project dependencies or reference resources used during this project, are detailed, either in the attribution section of the relevant .html, .css and .js files or the dependencies folder, within this project.
